@@ -1,0 +1,72 @@
+{
+  "name": "climbfileinfo",
+  "displayName": "climbFileInfo",
+  "description": "insert climb model page files info",
+  "version": "0.0.1",
+  "publisher": "ChaoLeer",
+  "engines": {
+    "vscode": "^1.15.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.climbfileinfo"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "insert climb model page files info",
+      "properties": {
+        "climbfileinfo.Author": {
+          "type": "string",
+          "default": "ChaoLeer",
+          "description": "default name, create by who`s name"
+        },
+        "climbfileinfo.template": {
+          "type": "string",
+          "default": "/*\r\n * @Author: {author}\r\n * @Date: {createTime}\r\n * @Last Modified by:   {lastModifiedBy}\r\n * @Last Modified time: {updateTime}\r\n * @Description: Description\r\n */\r\n"
+        },
+        "climbfileinfo.LastModifiedBy": {
+          "type": "string",
+          "default": "ChaoLeer",
+          "description": "default name, last modified by who`s name"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.climbfileinfo",
+        "title": "climb文件信息插入"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.climbfileinfo",
+        "key": "ctrl+'",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.climbfileinfo",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "eslint": "^3.6.0",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
+  }
+}
